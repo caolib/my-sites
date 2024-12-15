@@ -25,7 +25,7 @@ $$
 > 引用块
 >
 
-github警告框：
+**github警告框**
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ github警告框：
 
 ==文本高亮== __加粗__ *斜体* ==***斜体高亮加粗***== ~~删除线~~ <u>下划线</u> <span alt='highlight'>高亮</span>
 
-代码块
+**代码块**
 
 ```js
 export default defineConfig({
@@ -98,19 +98,16 @@ export default defineConfig({
 | 2024-12-15 12:35:07 | 789  | 深圳 |
 |                     |      |      |
 
-图片
+**图片**
 
 <img src="https://cdn.jsdelivr.net/gh/talentcao/i@main/202411071613614.gif" style="zoom: 67%;" alt="shadow-可惜默认不支持图释" />
+
+**音频**
 
 <audio controls="controls">
   <source src="https://bin-music.netlify.app/songs/ラブソングが歌えない-結束バンド.mp3" type="audio/mp3" />
 </audio>
-
-<details>
-    <summary>折叠标签</summary>
-    青青子衿，悠悠我心
-</details>
-[Emoji表情符号](https://www.webfx.com/tools/emoji-cheat-sheet/)：:smile:（`:smile:`），Decimal NCRs或Hexadecimal NCRs^[2]^编码也是受支持的，譬如“&#31505;&#21741;”：&#128514;（`&#128514;`）或&#x1F602;（`&#x1F602;`）
+**饼图**
 
 ```mermaid
 pie
@@ -128,4 +125,4 @@ pie
 - [x] 已完成任务1
 - [x] 已完成任务2
 
-> 此文档参考自 [typora-dyzj-theme](https://github.com/muggledy/typora-dyzj-theme)
+> 此文档参考自 [typora-dyzj-theme](https://github.com/muggledy/typora-dyzj-theme)，感谢作者muggledy

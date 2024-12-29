@@ -12,15 +12,7 @@
 
 ###### 六级标题
 
-
-
-行内公式：$\lim\limits_{x \to \infty} \exp(-x)=0$，行间公式：
-$$
-E_0 = mc^2 \\
-\quad\text{—— Albert Einstein}
-$$
-
-可以直接用尖括号包裹URL链接或邮箱：<https://clb.pages.dev>
+## 引用块
 
 > ## 关雎
 >
@@ -32,7 +24,7 @@ $$
 > 参差荇菜，左右采之。窈窕淑女，琴瑟友之。
 > 参差荇菜，左右芼之。窈窕淑女，钟鼓乐之。
 
-**github警告框**
+## GitHub警告框
 
 > [!NOTE]
 >
@@ -70,7 +62,7 @@ $$
 >
 > 洛阳亲友如相问，一片冰心在玉壶。——王昌龄《芙蓉楼送辛渐》
 
-**代码块**
+## 代码块
 
 ```javascript
 export default defineConfig({
@@ -103,16 +95,37 @@ export default defineConfig({
 })
 ```
 
+## 列表
 
-- 无序列表
-  - 无序列表 
-    - 无序列表
+> 有、无序列表样式来自[dyzj](https://theme.typora.io/theme/dyzj/)主题，感谢作者muggledy
 
-1. 有序列表
-2. 2
-3. 3
+无序列表：
+
+
+- 无
+  - 无序
+    - 无序列
+      - 无序列表
+
+有序列表：
+
+1. 有
+2. 有序
+3. 有序列
+4. 有序列表
+
+任务列表：
+
+- [ ] 未完成任务1
+- [ ] 未完成任务2
+- [x] 已完成任务1
+- [x] 已完成任务2
+
+## 文本
 
 ==文本高亮== __加粗__ *斜体* ==***斜体高亮加粗***== ~~删除线~~ <u>下划线</u> <span alt='highlight'>高亮</span> <kbd>Ctrl T</kbd>可以插入表格
+
+## 表格
 
 | 时间                | 人数 | 地点 |
 | :------------------ | :--: | ---: |
@@ -121,7 +134,9 @@ export default defineConfig({
 | 2024-12-15 12:35:07 | 789  | 深圳 |
 |                     |      |      |
 
-**图片** 默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐
+## 图片 
+
+图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐
 
 `<img align='left' src="......"/> <img align='right' src="......"/>`
 
@@ -135,12 +150,28 @@ export default defineConfig({
 
 
 
-**音频**
+## 数学公式
+
+- 行内公式：这是一个数学公式 $\lim\limits_{x \to \infty} \exp(-x)=0$
+
+- 行间公式：
+
+$$
+E_0 = mc^2 \\
+\quad\text{—— Albert Einstein}
+$$
+
+## 链接
+
+- 可以直接用尖括号包裹URL[链接]()或邮箱：<https://clb.pages.dev>
+
+## 音频
 
 <audio controls="controls">
   <source src="https://bin-music.netlify.app/songs/ラブソングが歌えない-結束バンド.mp3" type="audio/mp3" />
 </audio>
-**饼图**
+
+## mermaid
 
 ```mermaid
 pie
@@ -149,11 +180,3 @@ pie
     "Work" : 12
     "Eat" : 2.5 
 ```
-
-
-任务列表：
-
-- [ ] 未完成任务1
-- [ ] 未完成任务2
-- [x] 已完成任务1
-- [x] 已完成任务2

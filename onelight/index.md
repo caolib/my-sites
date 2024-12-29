@@ -33,7 +33,7 @@ $$
 
 > [!TIP]
 >
-> 
+> tishi
 
 > [!IMPORTANT]
 >
@@ -49,7 +49,7 @@ $$
 
 **代码块**
 
-```js
+```javascript
 export default defineConfig({
     plugins: [
         vue(),
@@ -112,9 +112,9 @@ export default defineConfig({
 ```mermaid
 pie
     title Pie Chart
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 150 
+    "Sleep" : 7.5
+    "Work" : 12
+    "Eat" : 2.5 
 ```
 
 

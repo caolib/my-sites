@@ -3,5 +3,5 @@
 - **[net](https://bin-sites.pages.dev/net)**
 - **[onelight](https://bin-sites.pages.dev/onelight)**
 - **[sponsor](https://bin-sites.pages.dev/sponsor)**
+- **[test](https://bin-sites.pages.dev/test)**
 - **[yuque](https://bin-sites.pages.dev/yuque)**
-

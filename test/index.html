@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        button {
+            font-size: 50px;
+            margin-left: 50vw;
+            margin-top: 50vh;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="fetchDataBtn">获取数据</button>
+    <h1 id="dataDisplay"></h1>
+
+    <script>
+        document.getElementById('fetchDataBtn').addEventListener('click', function () {
+            axios.get('http://[240e:370:9114:2060:a0be:9d44:2e3d:355e]:8080')
+                .then(function (response) {
+                    document.getElementById('dataDisplay').innerText = JSON.stringify(response.data, null, 2);
+                })
+                .catch(function (error) {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

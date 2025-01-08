@@ -168,8 +168,9 @@ $$
 ## 音频
 
 <audio controls="controls">
-  <source src="https://bin-music.netlify.app/songs/ラブソングが歌えない-結束バンド.mp3" type="audio/mp3" />
+  <source src="https://bin-music.netlify.app/songs/小さな海-結束バンド.mp3" type="audio/mp3" />
 </audio>
+
 ## mermaid
 
 ```mermaid

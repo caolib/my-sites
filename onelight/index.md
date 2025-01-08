@@ -64,35 +64,39 @@
 
 ## 代码块
 
+```java
+@Slf4j
+@Component
+public class DefaultGlobalFilter implements GlobalFilter, Ordered {
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        ServerHttpRequest request = exchange.getRequest();
+        log.debug("request path: {}", request.getPath());
+        log.debug("request headers: {}", request.getHeaders());
+        //log.debug("Authorization: {}", request.getHeaders().get("Authorization"));
+        return chain.filter(exchange);
+    }
+
+    // 过滤器的优先级，数字越小，优先级越高
+    @Override
+    public int getOrder() {
+        return 100;
+    }
+}
+```
+
 ```javascript
 export default defineConfig({
     plugins: [
         vue(),
-        AutoImport({
-            resolvers: [ElementPlusResolver()],
-        }),
-        Components({
-            resolvers: [ElementPlusResolver()],
-        }),
     ],
-    resolve: {
-        alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url))
-        }
-    },
-    //http proxy
-    server: {
-        host: 'localhost',
-        port: 5173,
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8080', //backend
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, '')
-            }
-        }
-    },
 })
+```
+
+```css
+div {
+  color: var(--main-blue);
+}
 ```
 
 ## 列表
@@ -124,6 +128,8 @@ export default defineConfig({
 ## 文本
 
 ==文本高亮== __加粗__ *斜体* ==***斜体高亮加粗***== ~~删除线~~ <u>下划线</u> <span alt='highlight'>高亮</span> <kbd>Ctrl T</kbd>可以插入表格
+
+
 
 ## 表格
 

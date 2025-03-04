@@ -2,19 +2,19 @@
 
 [TOC]
 
-## 二级标题
+## 1 二级标题
 
-### 三级标题
+### 1.1 三级标题
 
-#### 四级标题
+#### 1.1.1 四级标题
 
-##### 五级标题
+##### 1.1.1.1 五级标题
 
-###### 六级标题
+###### 1.1.1.1.1 六级标题
 
-## 引用块
+## 2 引用块
 
-> ## 关雎
+> 关雎
 >
 > 诗经·国风·周南〔先秦〕
 >
@@ -24,7 +24,7 @@
 > 参差荇菜，左右采之。窈窕淑女，琴瑟友之。
 > 参差荇菜，左右芼之。窈窕淑女，钟鼓乐之。
 
-## GitHub警告框
+## 3 GitHub警告框
 
 > [!NOTE]
 >
@@ -60,46 +60,42 @@
 
 > [!CAUTION]
 >
-> **主题在网页中的效果和Typora中使用可能会有点差异**
+> 洛阳亲友如相问，一片冰心在玉壶。——王昌龄《芙蓉楼送辛渐》
 
-## 代码块
-
-```java
-@Slf4j
-@Component
-public class DefaultGlobalFilter implements GlobalFilter, Ordered {
-    @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        ServerHttpRequest request = exchange.getRequest();
-        log.debug("request path: {}", request.getPath());
-        log.debug("request headers: {}", request.getHeaders());
-        //log.debug("Authorization: {}", request.getHeaders().get("Authorization"));
-        return chain.filter(exchange);
-    }
-
-    // 过滤器的优先级，数字越小，优先级越高
-    @Override
-    public int getOrder() {
-        return 100;
-    }
-}
-```
+## 4 代码块
 
 ```javascript
 export default defineConfig({
     plugins: [
         vue(),
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+        }),
+        Components({
+            resolvers: [ElementPlusResolver()],
+        }),
     ],
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url))
+        }
+    },
+    //http proxy
+    server: {
+        host: 'localhost',
+        port: 5173,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080', //backend
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, '')
+            }
+        }
+    },
 })
 ```
 
-```css
-div {
-  color: var(--main-blue);
-}
-```
-
-## 列表
+## 5 列表
 
 > 有、无序列表样式来自[dyzj](https://theme.typora.io/theme/dyzj/)主题，感谢作者muggledy
 
@@ -125,22 +121,27 @@ div {
 - [x] 已完成任务1
 - [x] 已完成任务2
 
-## 文本
+## 6 文本
 
-==文本高亮== __加粗__ *斜体* ==***斜体高亮加粗***== ~~删除线~~ <u>下划线</u> <span alt='highlight'>高亮</span> <kbd>Ctrl T</kbd>可以插入表格
+| 效果                              | 语法                                | 快捷键                                             |
+| --------------------------------- | ----------------------------------- | -------------------------------------------------- |
+| ==文本高亮==                      | `==文本高亮==`                      | 选中文本后双击<kbd>=</kbd>键                       |
+| **加粗**                          | `**加粗**`                          | 选中文本后<kbd>Ctrl B</kbd>                        |
+| *斜体*                            | `*斜体*`                            | 选中文本后<kbd>Ctrl I</kbd>                        |
+| ~~删除线~~                        | `~~删除线~~`                        | 选中文本后按住<kbd>Shift</kbd>然后双击<kbd>~</kbd> |
+| <u>下划线</u>                     | `<u>下划线</u>`                     | 选中文本后<kbd>Ctrl U</kbd>                        |
+| <kbd>Ctrl</kbd>                   | `<kbd>Ctrl</kbd>`                   | 无                                                 |
+| <span alt='highlight'>高亮</span> | `<span alt='highlight'>高亮</span>` | 无，这是主题自定义的                               |
 
-
-
-## 表格
+## 7 表格
 
 | 时间                | 人数 | 地点 |
 | :------------------ | :--: | ---: |
 | 2024-12-15 12:34:59 | 123  | 上海 |
 | 2024-12-15 12:35:03 | 456  | 北京 |
 | 2024-12-15 12:35:07 | 789  | 深圳 |
-|                     |      |      |
 
-## 图片 
+## 8 图片
 
 图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐
 
@@ -156,7 +157,7 @@ div {
 
 
 
-## 数学公式
+## 9 数学公式
 
 - 行内公式：这是一个数学公式 $\lim\limits_{x \to \infty} \exp(-x)=0$
 
@@ -167,17 +168,20 @@ E_0 = mc^2 \\
 \quad\text{—— Albert Einstein}
 $$
 
-## 链接
+## 10 链接
 
-- 可以直接用尖括号包裹URL[链接]()或邮箱：<https://clb.pages.dev>
+可以直接用尖括号包裹链接`<https://clb.pages.dev>`或者使用`[链接名](链接地址)`
 
-## 音频
+<https://clb.pages.dev>
+
+[typora-onelight-theme](https://github.com/caolib/typora-onelight-theme)
+
+## 11 音频
 
 <audio controls="controls">
-  <source src="https://bin-music.netlify.app/songs/小さな海-結束バンド.mp3" type="audio/mp3" />
+  <source src="https://bin-music.netlify.app/songs/%E5%B0%8F%E3%81%95%E3%81%AA%E6%B5%B7-%E7%B5%90%E6%9D%9F%E3%83%90%E3%83%B3%E3%83%89.mp3" type="audio/mp3" />
 </audio>
-
-## mermaid
+## 12 mermaid
 
 ```mermaid
 pie

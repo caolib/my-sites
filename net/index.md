@@ -1942,7 +1942,7 @@ sticky: 10000
 
 > [!tip]
 >
-> [markdown文件地址](https://github.com/caolib/my-sites/blob/main/net/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md)
+> [markdown文件地址](https://github.com/caolib/my-sites/blob/main/net/index.md)
 >
 > [问题反馈](https://github.com/caolib/my-sites/issues)
 

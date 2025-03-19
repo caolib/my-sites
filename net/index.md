@@ -1944,13 +1944,12 @@ sticky: 10000
 
 ---
 
-## 8.关于
+## 8. 关于
 
 > [!tip]
 >
-> [markdown文件地址](https://github.com/caolib/my-sites/blob/main/net/index.md)
+> [markdown文件地址](https://github.com/caolib/my-sites/blob/main/net/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md),文章使用typora编辑器[OneLight](https://github.com/caolib/typora-onelight-theme)主题导出
 >
 > [问题反馈](https://github.com/caolib/my-sites/issues)
 
 ![](https://counter.seku.su/cmoe?name=clb&theme=r34)
-

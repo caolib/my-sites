@@ -131,7 +131,7 @@ export default defineConfig({
 | ~~删除线~~                        | `~~删除线~~`                        | 选中文本后按住<kbd>Shift</kbd>然后双击<kbd>~</kbd> |
 | <u>下划线</u>                     | `<u>下划线</u>`                     | 选中文本后<kbd>Ctrl U</kbd>                        |
 | <kbd>Ctrl</kbd>                   | `<kbd>Ctrl</kbd>`                   | 无                                                 |
-| <span alt='highlight'>高亮</span> | `<span alt='highlight'>高亮</span>` | 无，这是主题自定义的                               |
+| <span alt='highlight'>高亮</span> | `<span alt='highlight'>高亮</span>` | 无                                                 |
 
 ## 7 表格
 
@@ -143,11 +143,15 @@ export default defineConfig({
 
 ## 8 图片
 
-图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐
+图片默认居中显示，可以设置img标签的algin属性调整为左对齐或者右对齐 
+
+<img src="https://img.shields.io/github/downloads/caolib/typora-onelight-theme/latest/total">
 
 `<img align='left' src="......"/> <img align='right' src="......"/>`
 
 <img align='left' src="https://s2.loli.net/2024/12/29/8KTQLnUcGzX2vdx.gif" alt="社恐" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/mTNin3OZPyucQpV.gif" alt="威胁" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/LRBkhyGwbI3toO7.gif" alt="气鼓鼓" style="zoom:25%;" /><img align='left' src="https://s2.loli.net/2024/12/29/Zbnxh3fTJUK8r7V.gif" alt="憋笑" style="zoom:25%;" />
+
+
 
 
 
@@ -184,9 +188,37 @@ $$
 ## 12 mermaid
 
 ```mermaid
-pie
-    title Pie Chart
-    "Sleep" : 7.5
-    "Work" : 12
-    "Eat" : 2.5 
+flowchart TD
+    A[Start] --> B{Is it?}
+    B -->|Yes| C[OK]
+    C --> D[Rethink]
+    D --> B
+    B ---->|No| E[End]
 ```
+
+```mermaid
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+```
+
+```mermaid
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+```
+
+```mermaid
+gantt
+    dateFormat HH:mm
+    axisFormat %H:%M
+    Initial milestone : milestone, m1, 17:49, 2m
+    Task A : 10m
+    Task B : 5m
+    Final milestone : milestone, m2, 18:08, 4m
+```
+

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<link rel="icon" href="https://s2.loli.net/2024/12/11/R9jA3yzp72Tt4YJ.png" type="image/png">
+<link rel="icon" href="https://s2.loli.net/2024/12/29/8KTQLnUcGzX2vdx.gif" type="image/png">
 <style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
 .mac-os-11 { --title-bar-height: 28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
@@ -222,18 +222,18 @@ mjx-container { break-inside: avoid; }
 :root {
     --bg-color: #f2f2f2;
     --code-bg-color: #282c34;
-    --text-color: #333;
+    --text-color: black;
     --primary-btn-text-color: #fff;
-    --window-border: 1px solid #eee;
     --active-file-bg-color: #eee;
+    --window-border: 1px solid var(--active-file-bg-color);
     --active-file-text-color: inherit;
     --active-file-border-color: var(--main-red);
     --side-bar-bg-color: var(--bg-color);
     --item-hover-bg-color: hsla(0, 0%, 90%, .59);
     --item-hover-text-color: var(--main-red);
     --monospace: monospace;
-    --select-text-font-color: inherit !important;
-    --select-text-bg-color: #3b3e4d;
+    --select-text-font-color: white !important;
+    --select-text-bg-color: #3266D0;
     --side-bar-menu-active-tint: var(--main-green);
     --outline-color: #a5a5a5;
     /* ---------------->> 主题色 <<---------------- */
@@ -251,8 +251,8 @@ mjx-container { break-inside: avoid; }
     /* ---------------->> 字体 <<---------------- */
     --main-font-family: "Cascadia Code", "喵字果汁体", consolas, "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif;
     /* ---------------->> 悬浮 <<---------------- */
-    --item-bg-color-red: #f4433638;
-    --item-bg-color-blue: #42a5f542;
+    --item-bg-color-red: rgb(from var(--main-red) r g b / 0.22);
+    --item-bg-color-blue: rgb(from var(--theme-color) r g b / 0.26);
     /* ---------------->> 阴影 <<---------------- */
     --box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
     --box-shadow-large: 0 8px 15px rgba(0, 0, 0, .3);
@@ -260,7 +260,7 @@ mjx-container { break-inside: avoid; }
     /* ---------------->> 过渡 <<---------------- */
     --transition: box-shadow 0.3s ease, transform 0.3s ease;
     --bg-transition: background-color 0.5s ease;
-    /* ---------------->> 左到右透明渐变 <<---------------- */
+    /* ---------------->> 左到右透明渐变色 <<---------------- */
     --gradient-color: linear-gradient(to right, var(--theme-light-color), rgba(255, 255, 255, 0));
     /* ---------------->> 圆角 <<---------------- */
     --radius-small: 5px;
@@ -276,18 +276,19 @@ mjx-container { break-inside: avoid; }
 }
 
 
-body {
+body,
+script,
+text,
+.md-rawblock-after,
+.md-rawblock-before,
+code,
+pre,
+samp,
+tt {
     font-family: var(--main-font-family)
 }
 
-::-moz-selection {
-    color: #fff
-}
 
-::-webkit-selection {
-    background: #b981d1;
-    color: #fff
-}
 
 #write {
     letter-spacing: 0;
@@ -339,7 +340,6 @@ body {
 #write h4,
 #write h5,
 #write h6 {
-    color: #000;
     font-weight: 700;
     margin: .72em 0;
     padding: 0
@@ -378,7 +378,7 @@ body {
     line-height: 25px;
     padding: 0 1px 0 1px;
     bottom: 0;
-    color: #42a5f5ed;
+    color: var(--item-bg-color-blue);
     font-size: .9rem;
     font-variant: "small-caps";
     position: absolute;
@@ -459,7 +459,7 @@ body {
     border-left: 5px solid var(--border-color);
     border-top-right-radius: 10px;
     box-shadow: var(--box-shadow);
-    color: #606060;
+    color: rgb(from var(--text-color) r g b / 0.85);
     font-size: .9em;
     margin-bottom: 16px;
     margin-top: 16px;
@@ -471,7 +471,7 @@ body {
 
 #write blockquote:hover {
     transition: var(--bg-transition);
-    background: var(--theme-light-color);
+    background: var(--bg-color);
     box-shadow: var(--box-shadow-large);
 }
 
@@ -490,6 +490,26 @@ a {
     text-decoration: underline;
 }
 
+.md-alert a>span.md-plain,
+.md-alert a.md-url,
+.md-alert a {
+    color: var(--main-purple) !important;
+}
+
+/* 目录中取消链接箭头 */
+#write a.md-toc-inner::after {
+    background: unset;
+}
+
+#write a::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.1em;
+    height: 1.1em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c94ae9'%3E%3Cpath d='M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/%3E%3C/svg%3E");
+}
+
 /* ---------------->> 目录项 <<---------------- */
 a.md-toc-inner {
     color: var(--main-purple);
@@ -500,7 +520,7 @@ a.md-toc-inner {
 }
 
 #write code {
-    background-color: #ebebeb;
+    background-color: var(--item-hover-bg-color);
     color: #eb4c37;
     font-family: var(--main-font-family);
     font-size: .9rem;
@@ -550,7 +570,7 @@ figure.md-table-fig.table-figure {
 
 /* ---------------->> 表格行 <<---------------- */
 table tr:hover {
-    background-color: #65666841
+    background-color: rgb(from var(--bg-color) r g b / 0.8);
 }
 
 #write table tr {
@@ -560,7 +580,7 @@ table tr:hover {
 
 /* ---------------->> 斑马纹 <<---------------- */
 #write table tr:nth-child(2n) {
-    background-color: #f3f3f3
+    background-color: rgb(from var(--bg-color) r g b / 0.8)
 }
 
 #write table tr td,
@@ -580,7 +600,7 @@ table tr:hover {
 }
 
 #write table tr:hover {
-    background: #e4e4e4;
+    background: rgb(from var(--bg-color) r g b / 0.7);
 }
 
 /* ---------------->> 脚注 <<---------------- */
@@ -598,7 +618,6 @@ table tr:hover {
 .md-fences,
 code {
     border-radius: var(--radius-small);
-
     margin-left: .2em;
     margin-right: .2em;
     padding: .1em
@@ -607,7 +626,7 @@ code {
 .md-fences {
     background-color: var(--code-bg-color);
     box-shadow: 0 4px 10px gray;
-    color: #ececec;
+    color: var(--bg-color);
     margin: 0 0 20px;
     padding: .4em 1em .3em;
     transition: var(--transition)
@@ -620,10 +639,6 @@ code {
 }
 
 
-
-.cm-s-inner div.CodeMirror-selected {
-    background: rgba(113, 124, 180, .2)
-}
 
 .cm-s-inner .cm-keyword {
     color: var(--main-purple)
@@ -731,7 +746,7 @@ del {
 .CodeMirror-selected,
 .CodeMirror-selectedtext {
     color: white !important;
-    background: #3266D0 !important;
+    background: var(--select-text-bg-color) !important;
 }
 
 
@@ -778,10 +793,6 @@ span#filesearch-case-option-btn:active {
     background-color: var(--theme-color)
 }
 
-.ion-close-round:before {
-    color: var(--main-red)
-}
-
 /* ---------------->> 搜索框 <<---------------- */
 
 #md-searchpanel .btn label {
@@ -791,6 +802,17 @@ span#filesearch-case-option-btn:active {
 
 div#md-searchpanel {
     background: var(--main-bg);
+}
+
+#md-searchpanel .btn {
+    text-align: center !important;
+    border-radius: 10px;
+    background: rgb(from var(--bg-color) r g b / 0.4);
+    margin: 0 2px;
+}
+
+#md-searchpanel .btn:hover {
+    background: var(--item-bg-color-blue);
 }
 
 
@@ -960,7 +982,8 @@ p.md-toc-content:hover {
     transition: var(--transition)
 }
 
-#write>pre.md-meta-block.md-end-block:hover {
+#write>pre.md-meta-block.md-end-block:hover,
+#write>pre.md-meta-block.md-end-block:focus {
     box-shadow: var(--box-shadow-large);
 }
 
@@ -996,18 +1019,15 @@ p.md-toc-content:hover {
     cursor: pointer;
 }
 
-.md-rawblock-after,
-.md-rawblock-before,
-code,
-pre,
-samp,
-tt {
-    font-family: var(--main-font-family)
+.fa-file-text-o:before {
+    content: '📄';
 }
+
+
 
 .fa-folder:before,
 .md-image-btn:before {
-    color: var(--main-yellow) !important;
+    color: var(--main-yellow);
 }
 
 .md-image-btn:before {
@@ -1044,9 +1064,14 @@ video {
 #md-searchpanel input {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background: hsla(0, 0%, 100%, .3);
+    background: rgb(from var(--bg-color) r g b / 0.7);
     border-radius: var(--radius-small);
     box-shadow: unset
+}
+
+#file-library-search-input:focus,
+#md-searchpanel input:focus {
+    border-color: var(--theme-color);
 }
 
 .btn.focus,
@@ -1071,14 +1096,6 @@ input:focus {
     color: rgb(145 205 255);
 }
 
-::-moz-selection {
-    background: #42a5f554
-}
-
-::selection {
-    background: #42a5f554
-}
-
 .megamenu-menu-list li a.active,
 .megamenu-menu-list:not(.saved) li a:hover {
     background-color: var(--item-hover-bg-color);
@@ -1096,7 +1113,7 @@ input:focus {
 .typora-node.pin-outline .md-notification-container {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background: hsla(0, 0%, 100%, .3)
+    background: rgb(from var(--bg-color) r g b / 0.7);
 }
 
 
@@ -1135,21 +1152,7 @@ input:focus {
     background: var(--item-bg-color-blue)
 }
 
-/* ---------------->> 右键菜单 <<---------------- */
-.dropdown-menu,
-.menu-item-container a.menu-style-btn {
-    border-radius: var(--radius-xlarge);
-    background-color: var(--mica-bg) !important;
-    backdrop-filter: var(--mica-blur);
-    -webkit-backdrop-filter: var(--mica-blur);
-    border: var(--mica-border);
-    box-shadow: var(--box-shadow);
-    transition: var(--mica-transition);
-}
 
-.dropdown-menu .divider {
-    opacity: 0;
-}
 
 
 
@@ -1174,8 +1177,23 @@ input:focus {
 }
 
 
+/* ---------------->> 右键菜单 <<---------------- */
+.dropdown-menu,
+.menu-item-container a.menu-style-btn {
+    border-radius: var(--radius-large);
+    background-color: var(--mica-bg) !important;
+    backdrop-filter: var(--mica-blur);
+    -webkit-backdrop-filter: var(--mica-blur);
+    border: var(--mica-border);
+    box-shadow: var(--box-shadow);
+    transition: var(--mica-transition);
+}
 
-/* ---------------->> 右键菜单悬浮 <<---------------- */
+.dropdown-menu .divider {
+    opacity: 0;
+}
+
+
 .context-menu.dropdown-menu>.active>a,
 .context-menu.dropdown-menu>li>a:hover,
 .menu-style-btn.active {
@@ -1189,10 +1207,16 @@ input:focus {
     padding-bottom: 0;
 }
 
-script,
-text {
-    font-family: var(--main-font-family)
+.ty-bold:before {
+    font-weight: bold;
 }
+
+.menu-item-container a.menu-style-btn.active,
+.menu-item-container a.menu-style-btn:hover {
+    background-color: var(--item-bg-color-blue) !important;
+}
+
+
 
 /* ---------------->> 高亮标签 <<---------------- */
 span[alt=highlight] {
@@ -1211,14 +1235,19 @@ span[alt=highlight] {
 .md-search-select {
     padding: 2px 5px 2px 5px;
     border-radius: var(--radius-large);
-    background: #ff0;
-    color: red;
+    background: #ff0 !important;
+    color: red !important;
     box-shadow: var(--box-shadow);
 }
 
 .md-search-hit {
     background: #ff0;
     box-shadow: var(--box-shadow);
+}
+
+.cm-search-hit {
+    background: unset;
+    color: unset;
 }
 
 
@@ -1228,7 +1257,7 @@ content {
     background-image: url('file:///C://Users//12655//AppData//Roaming//Typora/themes/onelight/img/bg.gif');
     background-position: 100% 100%;
     background-repeat: no-repeat;
-    background-size: 200px auto;
+    background-size: 100px auto;
     transition: background-image .5s ease-in-out, background-size .5s ease-in-out
 }
 
@@ -1264,15 +1293,6 @@ a#m-saved:hover {
 
 a#megamenu-clear-recet-documents:hover {
     background: transparent;
-}
-
-::-moz-selection {
-    background: var(--item-bg-color-blue)
-}
-
-.in-text-selection,
-::selection {
-    background: var(--item-bg-color-blue)
 }
 
 .CodeMirror-gutters {
@@ -1404,7 +1424,7 @@ pre.md-fences.md-end-block.md-fences-with-lineno.ty-contain-cm::after {
 }
 
 
-/* ---------------->> 代码块下span文本 <<---------------- */
+/* ---------------->> 代码块文本 <<---------------- */
 pre.CodeMirror-line>span {
     color: var(--light-color);
 }
@@ -1492,7 +1512,7 @@ span.megamenu-menu-header-title-back[data-localize=Back]:hover {
 .outline-h6::after {
     content: "";
     height: calc(100% - 25px);
-    width: 1px;
+    width: 1.3px;
     background: transparent;
     position: absolute;
     top: 25px;
@@ -1614,15 +1634,66 @@ span.md-alert-text-container {
     background: var(--border-color) !important;
 }
 
-content {
-    background-size: 100px auto;
+:root {
+    --bg-color: #f2f2f2;
+    --code-bg-color: #282c34;
+    --text-color: #333;
+    --primary-btn-text-color: #fff;
+    --window-border: 1px solid #eee;
+    --active-file-bg-color: #eee;
+    --active-file-text-color: inherit;
+    --active-file-border-color: var(--main-red);
+    --side-bar-bg-color: var(--bg-color);
+    --item-hover-bg-color: hsla(0, 0%, 90%, .59);
+    --item-hover-text-color: var(--main-red);
+    --monospace: monospace;
+    --side-bar-menu-active-tint: var(--main-green);
+    --outline-color: #a5a5a5;
+    /* ---------------->> 主题色 <<---------------- */
+    --theme-color: #166ff3;
+    --main-red: #ff6b6b;
+    --main-green: #2ed573;
+    --main-purple: #c94ae9;
+    --main-yellow: #f9b03d;
+    --light-color: #b2b2b2;
+    --theme-light-color: white;
+    --code--bg-color: #282c34;
+    --code--bg-color-light: #3d404e;
+    --border-color: var(--theme-color);
+    --border: solid 0.5px var(--theme-color)94;
+    /* ---------------->> 字体 <<---------------- */
+    /* --main-font-family: "FiraCode Nerd Font", "霞鹜文楷", "喵字果汁体", consolas, "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif; */
+    --main-font-family: "cascadia code nf", "喵字果汁体", consolas, "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* ---------------->> 悬浮 <<---------------- */
+    --item-bg-color-red: rgb(from var(--main-red) r g b / 0.22);
+    --item-bg-color-blue: rgb(from var(--theme-color) r g b / 0.26);
+    /* ---------------->> 阴影 <<---------------- */
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
+    --box-shadow-large: 0 8px 15px rgba(0, 0, 0, .3);
+    --drop-shadow: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
+    /* ---------------->> 过渡 <<---------------- */
+    --transition: box-shadow 0.3s ease, transform 0.3s ease;
+    --bg-transition: background-color 0.5s ease;
+    /* ---------------->> 左到右透明渐变 <<---------------- */
+    --gradient-color: linear-gradient(to right, var(--theme-light-color), rgba(255, 255, 255, 0));
+    /* ---------------->> 圆角 <<---------------- */
+    --radius-small: 5px;
+    --radius-large: 10px;
+    --radius-xlarge: 15px;
+    /* ---------------->> 云母 <<---------------- */
+    --mica-bg: rgba(255, 255, 255, 0.65);
+    --mica-blur: blur(12px) saturate(1.3);
+    --mica-border: 1px solid rgba(255, 255, 255, 0.15);
+    --mica-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    --mica-transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 </style><title>index</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><blockquote><ul><li><p><a href='https://bin-sites.pages.dev/net'><span>计算机网络</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/markdown-doc'><span>markdown使用教程</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/onelight'><span>onelight主题</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/yuque'><span>yuque在线编辑器</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/book'><span>图书借阅管理系统部署教程</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/sponsor'><span>赞赏</span></a></p></li></ul></blockquote><p>&nbsp;</p></div></div>
+<div id='write'  class=''><blockquote><ul><li><p><a href='https://bin-sites.pages.dev/net'><span>计算机网络</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/markdown-doc'><span>markdown使用教程</span></a></p></li><li><p><span>onelight主题</span></p><ul><li><p><a href='https://bin-sites.pages.dev/onelight'><span>浅色主题</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/onelight/dark'><span>深色主题</span></a></p></li></ul></li><li><p><a href='https://bin-sites.pages.dev/yuque'><span>yuque在线编辑器</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/book'><span>图书借阅管理系统部署教程</span></a></p></li><li><p><a href='https://bin-sites.pages.dev/sponsor'><span>赞赏</span></a></p></li></ul></blockquote><p>&nbsp;</p></div></div>
 
-<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script><button id="toggle-sidebar">侧栏</button>
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script><button id="toggle-sidebar">打开/收起侧栏</button>
 
 <script>
 document.getElementById('toggle-sidebar').addEventListener('click', function() {
@@ -1636,7 +1707,7 @@ document.getElementById('toggle-sidebar').addEventListener('click', function() {
 </script>
 <style>
 #toggle-sidebar {
-  display:none;
+  display: block;
   position: fixed;
   top: 10px;
   left: 10px;
